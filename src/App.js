@@ -8,14 +8,26 @@ import purp from "./purp.png";
 import black from "./black.png";
 import green from "./green.png";
 
+// By default all transforms are 3d.
+// You should only animate transforms and opacity
+// Translate shortcuts: x, y, z
+// Translate: translateX, translateY, translateZ
+// Scale: scale, scaleX, scaleY
+// Rotate: rotate, rotateX, rotateY, rotateZ
+// Skew: skew, skewX, skewY
+
 function App() {
 	return (
 		<motion.div
 			initial={{
-				opacity: 0
+				opacity: 0,
+				x: 100,
+				y: 100
 			}}
 			animate={{
-				opacity: 1
+				opacity: 1,
+				x: 0,
+				y: 0
 			}}
 			transition={{
 				duration: 1
