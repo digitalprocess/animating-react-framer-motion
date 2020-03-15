@@ -10,6 +10,7 @@ import black from "./black.png"
 import green from "./green.png"
 
 import Modal from './Modal'
+import Accordion from './Accordion'
 
 // By default all transforms are 3d.
 // You should only animate transforms and opacity
@@ -55,6 +56,8 @@ function App() {
 						<img src={black} alt="color" />
 					</Card>
 				</Modal>
+
+				<Accordion />
 
 				<CardGrid>
 					<Card style={{ background: "var(--purp)" }}>
