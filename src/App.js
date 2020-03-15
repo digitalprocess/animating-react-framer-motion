@@ -9,6 +9,7 @@ import purp from "./purp.png"
 import black from "./black.png"
 import green from "./green.png"
 
+import Nav from './Nav'
 import Modal from './Modal'
 import Accordion from './Accordion'
 
@@ -22,6 +23,7 @@ import Accordion from './Accordion'
 
 function App() {
 	const [ value, setValue, ] = useState(0)
+	const [ isNavOpen, setIsNavOpen, ] = useState(false)
 	const [ isToggled, setToggle, ] = useState(false)
 
 	return (
@@ -31,7 +33,11 @@ function App() {
 			transition={{ duration: 1 }}
 		>
 			<Header>
-				<Menu />
+				<Menu onClick={() => setIsNavOpen(!isNavOpen)} />
+				<Nav
+					isNavOpen={isNavOpen}
+					setIsNavOpen={setIsNavOpen}
+				/>
 				<h1>Animating React with Framer Motion</h1>
 			</Header>
 			<Container>
