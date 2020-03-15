@@ -32,13 +32,14 @@ function App() {
 		>
 			<Header>
 				<Menu />
-				<h1>Header</h1>
+				<h1>Animating React with Framer Motion</h1>
 			</Header>
 			<Container>
-				<h2>Super Cool</h2>
-				<button onClick={() => setToggle(!isToggled)}>
-					Toggle
-				</button>
+				<motion.h2
+					animate={{ x: value + 'px' }}
+				>
+					Slide Me
+				</motion.h2>
 				<input
 					type="range"
 					min="-100"
@@ -47,6 +48,12 @@ function App() {
 					onChange={ev => setValue(ev.target.value)}
 				/>
 
+				<hr/>
+
+				<h2>Modal</h2>
+				<button onClick={() => setToggle(!isToggled)}>
+					Toggle
+				</button>
 				<Modal
 					isToggled={isToggled}
 					setToggle={setToggle}
@@ -57,7 +64,11 @@ function App() {
 					</Card>
 				</Modal>
 
+				<hr/>
+
 				<Accordion />
+
+				<hr/>
 
 				<CardGrid>
 					<Card style={{ background: "var(--purp)" }}>

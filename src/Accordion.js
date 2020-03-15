@@ -10,7 +10,7 @@ const Accordion = () => {
 				onClick={() => setIsToggled(!isToggled)}
 				style={{ cursor: 'pointer' }}
 			>
-				Accordion Title
+				Click Me
 			</h2>
 			<AnimatePresence>
 				{isToggled &&
