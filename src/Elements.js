@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import {motion} from 'framer-motion'
 
 export const Header = styled.header`
 	background: var(--black);
@@ -40,7 +41,7 @@ CardGrid.defaultProps = {
 	"data-id": "CardGrid"
 }
 
-export const Card = styled.div`
+export const Card = styled(motion.div)`
 	border-radius: 15px;
 	padding: 20px;
 	color: white;

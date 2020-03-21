@@ -77,7 +77,12 @@ function App() {
 				<hr/>
 
 				<CardGrid>
-					<Card style={{ background: "var(--purp)" }}>
+					<Card
+						whileHover={{ scale: [1, 0.8, 1.2] }}
+						onHoverStart={() => console.log('hover start')}
+						onHoverEnd={() => console.log('hover end')}
+						style={{ background: "var(--purp)" }
+					}>
 						<h3>Some card</h3>
 						<img src={purp} alt="color"/>
 					</Card>

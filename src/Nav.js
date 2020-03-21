@@ -19,7 +19,7 @@ const ulVariants = {
 		transition : {
 			staggerChildren: 0.3,
 			delayChildren: 0.2,
-			staggerDirection: -1, // 1 forward,-1 backwards
+			staggerDirection: -1, // 1 = forward,-1 = backwards
 			when: 'afterChildren', // "afterChildren", "beforeChildren"
 		}
 	},
@@ -73,33 +73,32 @@ const Nav = ({ isNavOpen, setIsNavOpen }) => {
 
 export default Nav
 
-
 const MenuNav = styled(motion.nav)`
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100vw;
 	height: 100vh;
-	background: var(--black);
 	padding: 40px;
+	background: var(--black);
 
 	ul {
-		list-style: none;
 		margin: 0;
 		padding: 0;
+		list-style: none;
 	}
 
 	li {
-		margin: 0 1 1rem;
 		padding: 0;
 		font-size: 2rem;
+		margin: 0 1 1rem;
 	}
 
 	a {
 		color: white;
 		text-decoration: none;
-		border-bottom: 2px solid transparent;
 		transition: 0.3s border ease;
+		border-bottom: 2px solid transparent;
 		&:hover {
 			border-bottom: 2px solid var(--blue);
 		}
