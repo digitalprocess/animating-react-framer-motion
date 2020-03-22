@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import { motion, useMotionValue, useTransform } from 'framer-motion'
+import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion'
 import { Card, CardGrid, Container, Header } from "./Elements"
 
 import "./App.css"
@@ -23,8 +23,10 @@ import Accordion from './Accordion'
 
 function App() {
 	const [ value, setValue, ] = useState(0)
-	const [ isNavOpen, setIsNavOpen, ] = useState(false)
 	const [ isToggled, setToggle, ] = useState(false)
+	const [ isNavOpen, setIsNavOpen, ] = useState(false)
+	const [ isCardActive, setIsCardActive ] = useState(true)
+
 	const x = useMotionValue(0)
 	const opacity = useTransform(x, [-200, 0, 200], [0, 1, 0])
 
@@ -94,21 +96,39 @@ function App() {
 						<h3>Some card</h3>
 						<img src={purp} alt="color"/>
 					</Card>
-					<Card
-						drag='x'
-						dragConstraints={{
-							right: 100,
-							left: -100,
-						}}
-						style={{
-							x,
-							opacity,
-							background: "var(--blue)"
-						}}
-					>
-						<h3>Some card</h3>
-						<img src={blue} alt="color"/>
-					</Card>
+					<AnimatePresence>
+						{isCardActive &&
+							<motion.div
+								exit={{height: 0, overflow: 'hidden', opacity: 0}}
+								transition={{
+									opacity: {
+										duration: 0
+									}
+								}}
+							>
+								<Card
+								onDragEnd={(event, info) => {
+									if(Math.abs(info.point.x) > 50) {
+										setIsCardActive(false)
+									}
+								}}
+								drag='x'
+								dragConstraints={{
+									right: 0,
+									left: 0,
+								}}
+								style={{
+									x,
+									opacity: isCardActive ? opacity : 0,
+									background: "var(--blue)"
+								}}
+								>
+									<h3>Some card</h3>
+									<img src={blue} alt="color"/>
+								</Card>
+							</motion.div>
+						}
+					</AnimatePresence>
 					<Card style={{ background: "var(--black)" }}>
 						<h3>Some card</h3>
 						<img src={black} alt="color"/>
