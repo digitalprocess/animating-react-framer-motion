@@ -12,6 +12,7 @@ import green from "./green.png"
 import Nav from './Nav'
 import Modal from './Modal'
 import Accordion from './Accordion'
+import Squares from './Squares'
 
 // By default all transforms are 3d.
 // You should only animate transforms and opacity
@@ -47,6 +48,7 @@ function App() {
 				<h1>Animating React with Framer Motion</h1>
 			</Header>
 			<Container>
+				<Squares />
 				<motion.h2
 					animate={{ x: value + 'px' }}
 				>
