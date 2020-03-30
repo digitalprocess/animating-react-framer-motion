@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import { motion, useMotionValue, AnimatePresence } from 'framer-motion'
 import { Container, Header } from "./Elements"
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, Switch, useLocation } from 'react-router-dom'
 
 import "./App.css"
 import Menu from "./Menu"
@@ -20,6 +20,7 @@ import About from "./About"
 
 function App() {
 	const [ isNavOpen, setIsNavOpen, ] = useState(false)
+	const location = useLocation()
 
 	const x = useMotionValue(0)
 
@@ -40,8 +41,8 @@ function App() {
 				<h1>Animating React with Framer Motion</h1>
 			</Header>
 			<Container>
-				<AnimatePresence>
-					<Switch>
+				<AnimatePresence exitBeforeEnter>
+					<Switch location={location} key={location.pathname}>
 						<Route exact path="/" component={Home} />
 						<Route path="/about" component={About} />
 					</Switch>

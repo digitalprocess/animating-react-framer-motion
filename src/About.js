@@ -20,13 +20,42 @@ const About = () => {
 	const x = useMotionValue(0)
 	const opacity = useTransform(x, [-200, 0, 200], [0, 1, 0])
 
+	const variants = {
+		initial: { opacity: 0, y: -100 },
+		animate: { opacity: 1, y: 0 },
+		exit: {
+			opacity: 0,
+			y: 100,
+		},
+	}
+
+	const hVariants = {
+		initial: { opacity: 0, y: -100 },
+		animate: {
+			opacity: 1,
+			y: 0,
+			transition: {
+				delay: 0.5
+			}
+		},
+		exit: { opacity: 0, y: 100 },
+	}
+
 	return (
 		<motion.div
-			initial={{ opacity: 0, y: -100 }}
-			animate={{ opacity: 1, y: 0 }}
-			exit={{ opacity: 0, y: 100 }}
+			variants={variants}
+			initial="initial"
+			animate="animate"
+			exit="exit"
 		>
-			<h1>About</h1>
+			<motion.h1
+				variants={hVariants}
+				initial="initial"
+				animate="animate"
+				exit="exit"
+			>
+				About
+			</motion.h1>
 			<h2>Reorder Elements</h2>
 			<Squares />
 			<hr />
