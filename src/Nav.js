@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 const variants = {
 	open: { opacity: 1, x: 0 },
@@ -40,10 +41,8 @@ const linkVariants = {
 }
 
 const links = [
-	{name: 'one', href: '/one'},
-	{name: 'two', href: '/two'},
-	{name: 'three', href: '/three'},
-	{name: 'four', href: '/four'},
+	{name: 'Home', href: '/'},
+	{name: 'About', href: '/about'},
 ]
 
 const Nav = ({ isNavOpen, setIsNavOpen }) => {
@@ -63,7 +62,7 @@ const Nav = ({ isNavOpen, setIsNavOpen }) => {
 						key={key}
 						variants={linkVariants}
 					>
-						<a href={link.href}>{link.name}</a>
+						<Link to={link.href}>{link.name}</Link>
 					</motion.li>
 				))}
 			</motion.ul>
@@ -77,7 +76,7 @@ const MenuNav = styled(motion.nav)`
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 100vw;
+	width: 10vw;
 	height: 100vh;
 	padding: 40px;
 	background: var(--black);
