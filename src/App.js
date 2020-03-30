@@ -72,7 +72,7 @@ function App() {
 
 				<h2>Modal</h2>
 				<button onClick={() => setToggle(!isToggled)}>
-					Toggle
+					Open
 				</button>
 				<Modal
 					isToggled={isToggled}
