@@ -49,10 +49,10 @@ const Slideshow = () => {
 						left: 0,
 						right: 0
 					}}
-					dragElastic={1}
+					dragElastic={2}
 					onDragEnd={(ev, { offset, velocity }) => {
 						console.log(offset.x)
-						if (offset.x > 400) {
+						if (offset.x > 50) {
 							paginate(-1)
 						} else {
 							paginate(1)
